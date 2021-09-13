@@ -1,16 +1,25 @@
-async function appendData() {
+async function getData(u){
+
+    let res = await fetch(u);
+
+    let data = await res.json();
+
+    data = data.articles;
+
+    return data;
+
+}
+
+
+
+
+
+
+ function appendData() {
   let newsName = document.getElementById("query").value;
   let appendDiv = document.getElementById("place");
 
   appendDiv.innerHTML = null;
-  let res = await fetch(
-    `https://newsapi.org/v2/everything?q=${newsName}&from=2021-09-13&sortBy=popularity&apiKey=b332789ba80742ba991afcdf6cfc2827`
-  );
-
-  let data = await res.json();
-
-  data = data.articles;
-  // console.log(data);
 
   data.forEach(({ author, title, urlToImage, description, url }) => {
     let div1 = document.createElement("div");
@@ -40,3 +49,6 @@ async function appendData() {
     newsName = null;
   });
 }
+
+
+export {getData}
