@@ -38,6 +38,7 @@ a {
   font-size: 20px;
   cursor: pointer;
   outline: none;
+  padding: 5px
 }
 
 #navbar button {
@@ -67,5 +68,5 @@ a {
 }
 
 #place >.innerBox > div{
-    padding:1%
+    padding:1% !important
 }

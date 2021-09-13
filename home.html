@@ -43,7 +43,7 @@
       mainDiv.setAttribute("class","innerBox")
 
       let div1 = document.createElement("div");
-        
+
       let h2 = document.createElement("h2");
       // h2.innerHTML = title;
 
@@ -74,6 +74,7 @@
   getAll2();
 
   async function getAll2() {
+      try{
     let newsName = document.getElementById("query").value;
     let appendDiv = document.getElementById("place");
 
@@ -120,5 +121,8 @@
       appendDiv.append(mainDiv)
       newsName = null;
     });
+}catch(error){
+    console.log(error);
+}
   }
 </script>

@@ -9,14 +9,23 @@
   </head>
   <body>
     <div id="navbar"></div>
+    <div id="place"></div>
   </body>
 </html>
 <script type="module">
   import { navbar } from "./components/slidebar.js";
 
+  import { getData, appendData } from "./scripts/showData.js";
+
   let divv = document.getElementById("navbar");
-
   divv.innerHTML = navbar();
+  document.body.prepend(divv);
 
-  document.body.append(divv);
+  let place = document.getElementById("place");
+
+  getData(
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=b332789ba80742ba991afcdf6cfc2827`
+  ).then((respond)=>{
+      appendData(respond,place)
+  })
 </script>

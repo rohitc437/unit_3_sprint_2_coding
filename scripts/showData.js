@@ -1,27 +1,20 @@
-async function getData(u){
+async function getData(u) {
+  let res = await fetch(u);
 
-    let res = await fetch(u);
+  let data = await res.json();
 
-    let data = await res.json();
+  data = data.articles;
 
-    data = data.articles;
-
-    return data;
-
+  return data;
 }
 
-
-
-
-
-
- function appendData() {
-  let newsName = document.getElementById("query").value;
-  let appendDiv = document.getElementById("place");
-
-  appendDiv.innerHTML = null;
+function appendData(data, place) {
+  place.innerHTML = null;
 
   data.forEach(({ author, title, urlToImage, description, url }) => {
+    let mainDiv = document.createElement("div");
+    mainDiv.setAttribute("class", "innerBox");
+
     let div1 = document.createElement("div");
 
     let h2 = document.createElement("h2");
@@ -44,11 +37,13 @@ async function getData(u){
 
     div1.append(h2, h4, p1);
 
-    appendDiv.append(img, div1);
+    mainDiv.append(img, div1);
 
-    newsName = null;
+    place.append(mainDiv);
+  
   });
+
+
 }
 
-
-export {getData}
+export { getData, appendData };
