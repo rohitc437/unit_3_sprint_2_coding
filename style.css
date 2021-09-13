@@ -54,3 +54,18 @@ a {
 }
 
 /* navbar End here */
+#place >.innerBox {
+    display: flex;
+    padding:1%;
+    margin:3%;
+    border: 1px solid black;
+    
+}
+#place >.innerBox img{
+    width: 30%;
+    height:200px;
+}
+
+#place >.innerBox > div{
+    padding:1%
+}

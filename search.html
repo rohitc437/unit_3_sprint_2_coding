@@ -38,6 +38,10 @@ async function getAll() {
     // console.log(data);
 
     data.forEach(({ author, title, urlToImage, description, url }) => {
+     
+        let mainDiv = document.createElement('div');
+      mainDiv.setAttribute("class","innerBox")
+
       let div1 = document.createElement("div");
 
       let h2 = document.createElement("h2");
@@ -60,9 +64,10 @@ async function getAll() {
 
       div1.append(h2, h4, p1);
 
-      appendDiv.append(img, div1);
+      mainDiv.append(img, div1);
 
-      newsName = null;
+      appendDiv.append(mainDiv);
+      newsName = null;     
     });
   }
 
