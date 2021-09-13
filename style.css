@@ -4,6 +4,10 @@
 a {
   color: black !important;
 }
+
+a:hover{
+    color:brown !important;
+}
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -50,7 +54,7 @@ a {
 }
 
 #navbar button:hover {
-  background-color: gray;
+  background-color:yellow;
   cursor: pointer;
 }
 
@@ -62,8 +66,15 @@ a {
     border: 1px solid black;
     
 }
+
+#place .innerBox{
+    background-color: hotpink;
+}
+
+
+
 #place >.innerBox img{
-    width: 30%;
+    width: 250px !important;
     height:200px;
 }
 
