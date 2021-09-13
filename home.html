@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body>
+    <div id="navbar">
+        <h2><a href="home.html">Home</a></h2>
+        <input type="text" placeholder="search" id="query">
+        <button onclick="getAll()">Search</button>
+        <div id="options">
+            <h2><a href="news.html">News</a></h2>
+            <h2><a href="search.html">Search</a></h2>
+        </div>
+    </div>
+
+    <div id="place"></div>
+</body>
+</html>
+<script type="text/javascript">
+   async function getAll(){
+
+     let newsName = document.getElementById('query').value;
+     let appendDiv = document.getElementById('place');
+
+     appendDiv.innerHTML = null;
+        let res = await fetch();
+
+        let data = await res.json();
+
+        console.log(data);
+        
+    }
+</script>

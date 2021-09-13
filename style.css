@@ -1,0 +1,56 @@
+*{
+    text-decoration:none;
+}
+
+#navbar{
+    display:flex;
+    justify-content:space-between;
+
+    border:1px solid black;
+
+    height: 100px;
+
+    padding-left:4%;
+    padding-right:4%;
+
+    background-color: plum;
+}
+
+#navbar #options{
+    display:flex;
+
+    justify-content:space-between;
+    gap:50px;
+
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+#navbar input{
+    height:30px;
+    margin-top:25px;
+    width:30%;
+    margin-left:10%;
+    border:none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    outline:none;
+}
+
+#navbar button{
+    height:35px;
+    margin-top:29px;
+    width:15%;
+    border:none;
+    border-radius: 20px;
+
+}
+
+#navbar button:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+/* navbar End here */
