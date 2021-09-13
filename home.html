@@ -1,38 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Home</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="navbar">
-        <h2><a href="home.html">Home</a></h2>
-        <input type="text" placeholder="search" id="query">
-        <button onclick="getAll()">Search</button>
-        <div id="options">
-            <h2><a href="news.html">News</a></h2>
-            <h2><a href="search.html">Search</a></h2>
-        </div>
+      <h2><a href="home.html">Home</a></h2>
+      <input type="text" placeholder="search" id="query" />
+      <button onclick="getAll()">Search</button>
+      <div id="options">
+        <h2><a href="news.html">News</a></h2>
+        <h2><a href="search.html">Search</a></h2>
+      </div>
     </div>
 
     <div id="place"></div>
-</body>
+  </body>
 </html>
 <script type="text/javascript">
-   async function getAll(){
+  // my api key = b332789ba80742ba991afcdf6cfc2827
+  async function getAll() {
+    let newsName = document.getElementById("query").value;
+    let appendDiv = document.getElementById("place");
 
-     let newsName = document.getElementById('query').value;
-     let appendDiv = document.getElementById('place');
+    appendDiv.innerHTML = null;
+    let res = await fetch(
+      `https://newsapi.org/v2/everything?q=${newsName}&from=2021-09-13&sortBy=popularity&apiKey=b332789ba80742ba991afcdf6cfc2827`
+    );
 
-     appendDiv.innerHTML = null;
-        let res = await fetch();
+    let data = await res.json();
 
-        let data = await res.json();
+    data = data.articles;
+    // console.log(data);
 
-        console.log(data);
-        
-    }
+    data.forEach(({ author, title, urlToImage, description, url }) => {
+      let div1 = document.createElement("div");
+
+      let h2 = document.createElement("h2");
+      // h2.innerHTML = title;
+
+      let p1 = document.createElement("p");
+      p1.innerHTML = description;
+
+      let img = document.createElement("img");
+      img.src = urlToImage;
+
+      let a1 = document.createElement("a");
+      a1.setAttribute("href", url);
+      a1.innerHTML = title;
+
+      let h4 = document.createElement("h4");
+      h4.innerHTML = author;
+
+      h2.append(a1);
+
+      div1.append(h2, h4, p1);
+
+      appendDiv.append(img, div1);
+
+      newsName = null;
+    });
+  }
+
+  getAll2();
+
+  async function getAll2() {
+    let newsName = document.getElementById("query").value;
+    let appendDiv = document.getElementById("place");
+
+    appendDiv.innerHTML = null;
+    let res = await fetch(
+      `https://newsapi.org/v2/everything?q=headlines&from=2021-09-13&sortBy=popularity&apiKey=b332789ba80742ba991afcdf6cfc2827`
+    );
+
+    let data = await res.json();
+
+    data = data.articles;
+    // console.log(data);
+
+    data.forEach(({ author, title, urlToImage, description, url }) => {
+      let div1 = document.createElement("div");
+
+      let h2 = document.createElement("h2");
+      // h2.innerHTML = title;
+
+      let p1 = document.createElement("p");
+      p1.innerHTML = description;
+
+      let img = document.createElement("img");
+      img.src = urlToImage;
+
+      let a1 = document.createElement("a");
+      a1.setAttribute("href", url);
+      a1.innerHTML = title;
+
+      let h4 = document.createElement("h4");
+      h4.innerHTML = author;
+
+      h2.append(a1);
+
+      div1.append(h2, h4, p1);
+
+      appendDiv.append(img, div1);
+
+      newsName = null;
+    });
+  }
 </script>
